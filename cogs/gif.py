@@ -82,6 +82,23 @@ class Gif(commands.Cog):
             e.set_image(url=f'{member.avatar_url}')
             await ctx.send(embed=e)
 
+    @commands.command()
+    @commands.cooldown(1,10,commands.BucketType.user)
+    async def cuddle(self,ctx,member:discord.Member):
+        """Cuddles the mentioned user
+        Even you could use userID or username instead of mentioning them"""
+        if ctx.author == member:
+            await ctx.send('How do you plan to cuddle yourself? :thinking:')
+        else:
+            e = discord.Embed(title=f'{ctx.author.name} cuddles {member.name} , so cute >~< ' , color = 0xdb7bff)
+            content = ['https://media1.tenor.com/images/8f8ba3baeecdf28f3e0fa7d4ce1a8586/tenor.gif?itemid=12668750', 'https://i.imgur.com/VNhuTUT.gif',
+            'https://media1.tenor.com/images/e07473d3cf372dbc24c760527740b85e/tenor.gif?itemid=12668884', 'https://media1.tenor.com/images/08de7ad3dcac4e10d27b2c203841a99f/tenor.gif?itemid=4885268'
+            'https://i.pinimg.com/originals/d8/7c/5c/d87c5cdd0a68caf2b6feeec0f7da7315.gif']
+            link = random.choice(content)
+            e.set_image(url=f'{link}')
+            await ctx.send(embed=e)
+        await asyncio.sleep(3)
+
 
 
 
